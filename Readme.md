@@ -33,3 +33,30 @@ Skeleton of html
   - Function based - js 
 
     
+===== 2 types of export 
+1. default export 
+- export default Title; 
+- import Title from "./components/Title";
+
+2. Named export
+
+
+
+======== PLAN ========
+* Header
+    - Logo
+    - Nav items 
+      - Home
+      - Contact us
+      - About us
+      - Sign In
+
+* Body
+    - Search bar & Filters
+    - Restaurant Cards
+
+* Footer
+    - Copyrights
+    - Contact us 
+    - Links & Addresses
+
