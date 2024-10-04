@@ -31,8 +31,9 @@
 .res-card {
   border: 1px solid black;
   width: 200px;
-  height: 300px;
-  margin: 9px;
+  background-color: #f0f0f0;
+  height: 390px;
+  margin: 5px;
 }
 
 .res-container {

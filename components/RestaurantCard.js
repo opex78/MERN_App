@@ -1,14 +1,14 @@
 import React from 'react'
-import { TEMP_RES_LOGO } from '../utils/constants'
+import { RES_IMG_URL } from '../utils/constants'
 
-function RestaurantCard() {
+function RestaurantCard({ name, cuisines, ratings, deliveryTime, cloudinaryId }) {
     return (
         <div className='res-card'>
-            <img className='res-logo' src={TEMP_RES_LOGO} alt="res-logo" />
-            <h3>Test Res</h3>
-            <h3>Test cuisines</h3>
-            <h3>4.2 stars</h3>
-            <h3>12 minutes</h3>
+            <img className='res-logo' src={`${RES_IMG_URL}${cloudinaryId}`} alt="res-img" />
+            <h3>{name}</h3>
+            <h3>{cuisines}</h3>
+            <h3>{ratings}</h3>
+            <h3>{deliveryTime}</h3>
         </div>
     )
 }

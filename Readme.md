@@ -60,3 +60,10 @@ Skeleton of html
     - Contact us 
     - Links & Addresses
 
+
+
+#### Props #### => Properties 
+
+## Array Destructuring ## 
+
+## map, filter, reduce javascript 
