@@ -89,3 +89,5 @@ let [restaurants, setRestaurants] = useState([])
 
 
 
+
+A => fetching API => UI renders => useEffect called => API call => UI render => useEffect
