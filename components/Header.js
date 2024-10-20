@@ -6,14 +6,24 @@ const Header = () => {
     const [btnText, setBtnText] = useState("Login")
     const [btnText1, setBtnText1] = useState("Login1")
 
+    
     // useEffect would be called after your component renders
     // Empty dependency array [] => component loads => useEffect would be called, but only on initial render => 1 time
     // Do not mention anything in dependency array => component loads => useEffect called on initial render as well as after every re-render of component
     // If you have a variable that is being updated
 
+    let abc = "123"
+    abc = "234"
+    console.log(abc)
+
+    // const test = "123"
+    // test = "234"
+    // console.log(abc)
+
     useEffect(() => {
         console.log("header useEffect is called")
     }, [])
+
     return (
         <div className="header">
             <div className="logo-container">
@@ -29,7 +39,9 @@ const Header = () => {
                     <li>Cart</li>
                     <button onClick={() => {
                         btnText === "Login" ? setBtnText("Logout") : setBtnText("Login")
-                    }}>{btnText}</button>
+                    }}>
+                        {btnText}
+                    </button>
                     <button onClick={() => {
                         btnText1 === "Login1" ? setBtnText1("Logout1") : setBtnText1("Login1")
                     }}>{btnText1}</button>
@@ -39,5 +51,6 @@ const Header = () => {
         </div>
     )
 }
+
 
 export default Header;
