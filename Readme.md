@@ -115,3 +115,23 @@ const btnText = "Logout"
 const btnText = "Login"
 btnText = "Logout"
 
+
+
+
+1,2,3,4,... 50
+51,52,53,.. 100
+13 chunks => each chunk has 8 restaurants inside
+
+1 
+x`
+3
+4 
+
+https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.0044745&lng=72.55311549999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING
+1,2,3,4,5,6,,7,8
+
+update => nextoffset - hash no 
+8, 9, 10.... 16
+
+update => nextoffset - hash no 
+
