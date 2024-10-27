@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { mock_restaurants, RES_API_URL } from '../utils/constants'
+import useRestaurants from '../utils/useRestaurants'
 
 import RestaurantCard from './RestaurantCard'
 import Shimmer from './Shimmer'
 
 function Body() {
-    console.log("body component is rendered")
-
     useEffect(() => {
-        console.log("body useEffect is called")
         fetchData()
     }, [])
     // normal js variable
@@ -20,18 +19,11 @@ function Body() {
     // 1st component render
     // let restaurants = []
     const fetchData = async () => {
-        const data = await fetch(RES_API_URL);
-        const json = await data.json()
-        const resData = json?.data?.cards[1].card?.card?.gridElements?.infoWithStyle?.restaurants ? json?.data?.cards[1].card?.card?.gridElements?.infoWithStyle?.restaurants
-            : json?.data?.cards[2].card?.card?.gridElements?.infoWithStyle?.restaurants ? json?.data?.cards[2].card?.card?.gridElements?.infoWithStyle?.restaurants
-                : json?.data?.cards[3].card?.card?.gridElements?.infoWithStyle?.restaurants ? json?.data?.cards[3].card?.card?.gridElements?.infoWithStyle?.restaurants
-                    : json?.data?.cards[4].card?.card?.gridElements?.infoWithStyle?.restaurants ? json?.data?.cards[4].card?.card?.gridElements?.infoWithStyle?.restaurants
-                        : mock_restaurants
-        // this will rerender my component , 
-        // internally it is executing => restaurants = resData (before executing again)
+        const resData = await useRestaurants();
+        console.log("resData from body", resData)
         setRestaurants(resData)
         setFilteredRestaurants(resData)
-    };
+    }
 
     return (restaurants.length === 0) ? <Shimmer /> :
         (
@@ -43,9 +35,9 @@ function Body() {
                             console.log("searchText", searchText)
                         }} />
                         <button className='btnSearch' onClick={() => {
-                            const filteredList = restaurants.filter((restaurnt) => {
-                                return restaurnt.info.name.toLowerCase().includes(searchText.toLowerCase())
-                            })
+                            const filteredList = searchText ? restaurants?.filter((restaurnt) => {
+                                return restaurnt?.info?.name?.toLowerCase()?.includes(searchText?.toLowerCase())
+                            }) : restaurants
                             setFilteredRestaurants(filteredList)
                         }}>Search</button>
 
@@ -55,9 +47,6 @@ function Body() {
                             let filteredList = restaurants.filter((restaurnt) => {
                                 return restaurnt.info.avgRatingString >= 4.5
                             })
-                            console.log("filteredList", filteredList)
-
-                            //restaurants = filteredList
                             setFilteredRestaurants(filteredList)
                             console.log("after filter restaurnts", restaurants)
                         }}>
@@ -67,24 +56,22 @@ function Body() {
 
                 </div>
                 <div id="res-id" className='res-container'>
-                    {/* <RestaurantCard name="Baskins" cuisines="Ice Cream, Desserts" deliveryTime="15-20 minutes" ratings="4.3 ⭐" />
-                <RestaurantCard name="Honest" cuisines="North Indian" deliveryTime="10-15 minutes" ratings="2.3 ⭐" />
-                <RestaurantCard name="Sankalp" cuisines="North Indian" deliveryTime="5-15 minutes" ratings="4.7 ⭐" />
-                 */}
-
                     {
                         filteredRestaurants && filteredRestaurants.map((restaurant, index) => {
-                            return <RestaurantCard
-                                key={index}
-                                name={restaurant.info.name}
-                                cuisines={restaurant.info.cuisines?.join(" , ")}
-                                deliveryTime={restaurant.info.sla.slaString}
-                                ratings={`${restaurant.info.avgRatingString} ⭐`}
-                                cloudinaryId={restaurant.info.cloudinaryImageId} />
+                            return (
+                                <Link to={"/restaurantmenu/" + restaurant.info.id}>
+                                    <RestaurantCard
+                                        key={index}
+                                        name={restaurant.info.name}
+                                        cuisines={restaurant.info.cuisines?.join(" , ")}
+                                        deliveryTime={restaurant.info.sla.slaString}
+                                        ratings={`${restaurant.info.avgRatingString} ⭐`}
+                                        cloudinaryId={restaurant.info.cloudinaryImageId} />
+                                </Link>)
                         })
                     }
                 </div>
-            </div>
+            </div >
         )
 }
 

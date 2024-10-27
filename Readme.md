@@ -96,42 +96,40 @@ A => fetching API => UI renders => useEffect called => API call => UI render => 
 2. try to call hooks on the top of function component because js is async languagage. JS is synchronous threaded lanaguage => code would be running line by line
 3. Never create hook inside conditional statements, not even loop, inside functions
 
-
 - main (master)
-  - Feat-123 
+  - Feat-123
     - New Branch from main branch - feat-123-handle-exception
-      - Do commits and open pull request 
+      - Do commits and open pull request
         - Seniors will do code review of Pull request
           - Pull request approved by Seniors
-            - Code of feat-123-handle-exception would be merged on main branch 
+            - Code of feat-123-handle-exception would be merged on main branch
 
 Initial render
 const btnText = "Login"
 
-Re-Render 
+Re-Render
 const btnText = "Logout"
 
 // Not Happening
 const btnText = "Login"
 btnText = "Logout"
 
-
-
-
 1,2,3,4,... 50
 51,52,53,.. 100
 13 chunks => each chunk has 8 restaurants inside
 
-1 
+1
 x`
 3
-4 
+4
 
 https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.0044745&lng=72.55311549999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING
 1,2,3,4,5,6,,7,8
 
-update => nextoffset - hash no 
+update => nextoffset - hash no
 8, 9, 10.... 16
 
-update => nextoffset - hash no 
+update => nextoffset - hash no
 
+=======
+If i apply <Link> tag anywhere in my proj from now onwards, it should take textDecoration and color by default

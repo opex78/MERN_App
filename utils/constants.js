@@ -1,6 +1,7 @@
 export const LOGO_IMG = "https://img.freepik.com/premium-vector/burger-delivery-logo_10250-1711.jpg"
 export const RES_IMG_URL = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
 export const RES_API_URL = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.0044745&lng=72.55311549999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+export const RES_MENU_API = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=23.0044745&lng=72.55311549999999&restaurantId="
 export const mock_restaurants = [
     {
         "info": {

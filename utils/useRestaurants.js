@@ -1,0 +1,17 @@
+import React from 'react'
+import { mock_restaurants, RES_API_URL } from './constants';
+
+async function useRestaurants() {
+    const data = await fetch(RES_API_URL);
+    const json = await data.json()
+    const resData = json?.data?.cards[1].card?.card?.gridElements?.infoWithStyle?.restaurants ? json?.data?.cards[1].card?.card?.gridElements?.infoWithStyle?.restaurants
+        : json?.data?.cards[2].card?.card?.gridElements?.infoWithStyle?.restaurants ? json?.data?.cards[2].card?.card?.gridElements?.infoWithStyle?.restaurants
+            : json?.data?.cards[3].card?.card?.gridElements?.infoWithStyle?.restaurants ? json?.data?.cards[3].card?.card?.gridElements?.infoWithStyle?.restaurants
+                : json?.data?.cards[4].card?.card?.gridElements?.infoWithStyle?.restaurants ? json?.data?.cards[4].card?.card?.gridElements?.infoWithStyle?.restaurants
+                    : mock_restaurants
+    console.log("resdata from hook", resData)
+    return resData;
+
+}
+
+export default useRestaurants
