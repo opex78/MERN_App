@@ -133,3 +133,25 @@ update => nextoffset - hash no
 
 =======
 If i apply <Link> tag anywhere in my proj from now onwards, it should take textDecoration and color by default
+
+
+
+
+
+
+#### MakeMyTrip.com ####
+
+Hotel - 20 files
+Cab Booking - 10 files
+Flight Booking - 25 files - Default Business
+Total - 55 files
+
+https://www.makemytrip.com/ => I will not load all 55 files
+25 files would be loaded at first 
+
+https://www.makemytrip.com/hotel/ - 1 file as a bundle => bundle internally contains 20 files in compressed mode (minified mode)
+
+
+### Higher order component ###
+
+HOC : take component as input and return a enhanced component 

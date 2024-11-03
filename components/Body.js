@@ -5,6 +5,7 @@ import useRestaurants from '../utils/useRestaurants'
 
 import RestaurantCard from './RestaurantCard'
 import Shimmer from './Shimmer'
+import withPromotedLabel from './withPromotedLabel'
 
 function Body() {
     useEffect(() => {
@@ -25,6 +26,14 @@ function Body() {
         setFilteredRestaurants(resData)
     }
 
+    function sum(a, b) {
+        return a + b;
+    }
+
+    sum(20,30)
+
+    // HOC => accepts RestaurantCard as input and returns enhanced RestaurantCard
+    const EnhancedRestaurntCard = withPromotedLabel(RestaurantCard)
     return (restaurants.length === 0) ? <Shimmer /> :
         (
             <div className='body'>
@@ -60,8 +69,9 @@ function Body() {
                         filteredRestaurants && filteredRestaurants.map((restaurant, index) => {
                             return (
                                 <Link to={"/restaurantmenu/" + restaurant.info.id}>
-                                    <RestaurantCard
+                                    <EnhancedRestaurntCard
                                         key={index}
+                                        promoted={restaurant.info.promoted}
                                         name={restaurant.info.name}
                                         cuisines={restaurant.info.cuisines?.join(" , ")}
                                         deliveryTime={restaurant.info.sla.slaString}

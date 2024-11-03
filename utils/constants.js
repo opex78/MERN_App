@@ -7,6 +7,7 @@ export const mock_restaurants = [
         "info": {
             "id": "653542",
             "name": "Manekchowk Sandwich & Pizza",
+            "promoted": true,
             "cloudinaryImageId": "7368ed44662f4da5852b1c883f60a08e",
             "locality": "Vastrapur Road",
             "areaName": "Vastrapur",
@@ -393,6 +394,7 @@ export const mock_restaurants = [
     {
         "info": {
             "id": "414078",
+            "promoted": true,
             "name": "Jay Kalyan Poha Center",
             "cloudinaryImageId": "bzkkvtc0imdae8kru6ig",
             "locality": "Jodhpur",
@@ -469,6 +471,7 @@ export const mock_restaurants = [
     {
         "info": {
             "id": "662958",
+            "promoted": true,
             "name": "Shree Ambica Maa Bhajipav & Dosa Chinese",
             "cloudinaryImageId": "f2c904b121c5b69748eb81dfa1754e03",
             "locality": "Mondal retail park",
