@@ -3,7 +3,7 @@ import { RES_IMG_URL } from '../utils/constants'
 
 function RestaurantCard({ name, cuisines, ratings, deliveryTime, cloudinaryId }) {
     return (
-        <div className='res-card'>
+        <div className=''>
             <img className='res-logo' src={`${RES_IMG_URL}${cloudinaryId}`} alt="res-img" />
             <h3>{name}</h3>
             <h3>{cuisines}</h3>

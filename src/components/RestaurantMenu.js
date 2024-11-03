@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import { mock_res_menu, RES_MENU_API } from '../utils/constants';
-import Shimmer from './Shimmer';
+import Shimmer from '../components/Shimmer';
 
 function RestaurantMenu() {
     const { resId } = useParams()
@@ -13,7 +13,8 @@ function RestaurantMenu() {
     const fetchResMenu = async () => {
         const menuResAPI = await fetch(RES_MENU_API + resId);
         const jsonMenu = await menuResAPI.json();
-        console.log("jsonMenu", jsonMenu)
+        console.log("jsonMenu", jsonMenu);
+
         const cards = jsonMenu.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards
         console.log("cards", cards)
         if (cards) {

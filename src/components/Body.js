@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom'
 import { mock_restaurants, RES_API_URL } from '../utils/constants'
 import useRestaurants from '../utils/useRestaurants'
 
-import RestaurantCard from './RestaurantCard'
-import Shimmer from './Shimmer'
-import withPromotedLabel from './withPromotedLabel'
+import RestaurantCard from '../components/RestaurantCard'
+import Shimmer from '../components/Shimmer'
+import withPromotedLabel from '../components/withPromotedLabel'
 
 function Body() {
     useEffect(() => {
@@ -30,7 +30,7 @@ function Body() {
         return a + b;
     }
 
-    sum(20,30)
+    sum(20, 30)
 
     // HOC => accepts RestaurantCard as input and returns enhanced RestaurantCard
     const EnhancedRestaurntCard = withPromotedLabel(RestaurantCard)

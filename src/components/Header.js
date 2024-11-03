@@ -26,7 +26,7 @@ const Header = () => {
     }, [])
 
     return (
-        <div className="header">
+        <div className="bg-black-300">
             <div className="logo-container">
                 <img className="logo-img"
                     alt="app-logo"

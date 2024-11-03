@@ -1,12 +1,12 @@
 const withPromotedLabel = (WrappedComponent) => {
     return (props) => {
         console.log("props", props)
-        const { promoted } = props;
+        const { promoted, ...enhancedProps } = props;
         return (
             <div>
                 {promoted && <label>Promoted</label>}
-                <WrappedComponent {...props} />
-            </div >
+                <WrappedComponent {...enhancedProps} />
+            </div>
         )
     }
 }
