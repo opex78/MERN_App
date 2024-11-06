@@ -36,7 +36,7 @@ function Body() {
     const EnhancedRestaurntCard = withPromotedLabel(RestaurantCard)
     return (restaurants.length === 0) ? <Shimmer /> :
         (
-            <div className='body'>
+            <div className='m-4 p-4'>
                 <div className='filter'>
                     <div className='search-bar'>
                         <input type="text" onChange={(e) => {
