@@ -12,44 +12,32 @@ const Header = () => {
     // Empty dependency array [] => component loads => useEffect would be called, but only on initial render => 1 time
     // Do not mention anything in dependency array => component loads => useEffect called on initial render as well as after every re-render of component
     // If you have a variable that is being updated
-
-    let abc = "123"
-    abc = "234"
-    console.log(abc)
-
-    // const test = "123"
-    // test = "234"
-    // console.log(abc)
-
     useEffect(() => {
         console.log("header useEffect is called")
     }, [])
 
     return (
-        <div className="bg-black-300">
-            <div className="logo-container">
-                <img className="logo-img"
+        <div className="flex justify-between bg-amber-100 border-solid border-2 border-amber-700">
+            <div>
+                <img className="w-24"
                     alt="app-logo"
                     src={LOGO_IMG} />
             </div>
-            <div className="nav-container">
-                <ul>
-                    <li>
+            <div>
+                <ul className="flex">
+                    <li className="m-4 p-4">
                         <Link to="/">Home</Link>
                     </li>
-                    <li>
+                    <li className="m-4 p-4">
                         <Link to="/about">About us</Link></li>
-                    <li><Link to="/grocery">Grocery</Link></li>
-                    <li><Link to="/contact">Contact us</Link></li>
-                    <li>Cart</li>
-                    <button onClick={() => {
+                    <li className="m-4 p-4"><Link to="/grocery">Grocery</Link></li>
+                    <li className="m-4 p-4"><Link to="/contact">Contact us</Link></li>
+                    <li className="m-4 p-4">Cart</li>
+                    <li className="m-4 p-4" onClick={() => {
                         btnText === "Login" ? setBtnText("Logout") : setBtnText("Login")
                     }}>
                         {btnText}
-                    </button>
-                    <button onClick={() => {
-                        btnText1 === "Login1" ? setBtnText1("Logout1") : setBtnText1("Login1")
-                    }}>{btnText1}</button>
+                    </li>
                 </ul>
 
             </div>

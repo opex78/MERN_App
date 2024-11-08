@@ -22,28 +22,24 @@ function Body() {
     const fetchData = async () => {
         const resData = await useRestaurants();
         console.log("resData from body", resData)
+        
         setRestaurants(resData)
         setFilteredRestaurants(resData)
     }
-
-    function sum(a, b) {
-        return a + b;
-    }
-
-    sum(20, 30)
 
     // HOC => accepts RestaurantCard as input and returns enhanced RestaurantCard
     const EnhancedRestaurntCard = withPromotedLabel(RestaurantCard)
     return (restaurants.length === 0) ? <Shimmer /> :
         (
-            <div className='m-4 p-4'>
-                <div className='filter'>
-                    <div className='search-bar'>
-                        <input type="text" onChange={(e) => {
-                            searchText = e.target.value
-                            console.log("searchText", searchText)
-                        }} />
-                        <button className='btnSearch' onClick={() => {
+            <div>
+                <div className='flex'>
+                    <div className='m-3'>
+                        <input className='border-2 border-solid border-black'
+                            type="text" onChange={(e) => {
+                                searchText = e.target.value
+                                console.log("searchText", searchText)
+                            }} />
+                        <button className='mx-2 px-2 border border-solid border-black rounded-lg bg-amber-400' onClick={() => {
                             const filteredList = searchText ? restaurants?.filter((restaurnt) => {
                                 return restaurnt?.info?.name?.toLowerCase()?.includes(searchText?.toLowerCase())
                             }) : restaurants
@@ -51,8 +47,8 @@ function Body() {
                         }}>Search</button>
 
                     </div>
-                    <div className='filter-top-rated'>
-                        <button onClick={() => {
+                    <div>
+                        <button className='m-2 p-1 border border-solid border-black rounded-lg bg-amber-400' onClick={() => {
                             let filteredList = restaurants.filter((restaurnt) => {
                                 return restaurnt.info.avgRatingString >= 4.5
                             })
@@ -64,7 +60,7 @@ function Body() {
                     </div>
 
                 </div>
-                <div id="res-id" className='res-container'>
+                <div id="res-id" className='flex flex-wrap'>
                     {
                         filteredRestaurants && filteredRestaurants.map((restaurant, index) => {
                             return (
