@@ -155,3 +155,9 @@ https://www.makemytrip.com/hotel/ - 1 file as a bundle => bundle internally cont
 ### Higher order component ###
 
 HOC : take component as input and return a enhanced component 
+
+### Taks 
+1. Design Item List of Restaurant Menu's category - x
+2. Build Accordian like feature in category - y
+3. Implement mock for restaurant menu  - z
+

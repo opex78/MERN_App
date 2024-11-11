@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { RES_MENU_API } from "./constants";
+import { mock_res_categories, RES_MENU_API } from "./constants";
 
 const useRestaurantMenu = (resId) => {
     const [resMenu, setResMenu] = useState([])
@@ -8,16 +8,21 @@ const useRestaurantMenu = (resId) => {
     }, []);
     const fetchResMenu = async () => {
         const menuResAPI = await fetch(RES_MENU_API + resId);
-        const jsonMenu = await menuResAPI.json();
-        console.log("jsonMenu", jsonMenu);
+        const jsonMenu = await menuResAPI?.json();
+        if (jsonMenu) {
+            console.log("jsonMenu", jsonMenu);
+            const cards = jsonMenu.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards
 
-        const cards = jsonMenu.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards
+            // get the categories
+            // 1. ItemCategory
+            const category = cards.filter((menuItem) => menuItem.card.card?.["@type"].includes("ItemCategory"))
+            console.log("category", category)
+            setResMenu(category)
+        }
+        else {
+            setResMenu(mock_res_categories)
+        }
 
-        // get the categories
-        // 1. ItemCategory
-        const category = cards.filter((menuItem) => menuItem.card.card?.["@type"].includes("ItemCategory"))
-        console.log("category", category)
-        setResMenu(category)
     }
     return resMenu;
 }
