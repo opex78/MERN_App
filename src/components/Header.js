@@ -1,19 +1,19 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { LOGO_IMG } from "../utils/constants";
+import UserContext from "./UserContext";
 
 const Header = () => {
-    console.log("header called")
+
     const [btnText, setBtnText] = useState("Login")
-    const [btnText1, setBtnText1] = useState("Login1")
 
-
+    const userData = useContext(UserContext)
     // useEffect would be called after your component renders
     // Empty dependency array [] => component loads => useEffect would be called, but only on initial render => 1 time
     // Do not mention anything in dependency array => component loads => useEffect called on initial render as well as after every re-render of component
-    // If you have a variable that is being updated
+    // If you have a variable that is being updated 
     useEffect(() => {
-        console.log("header useEffect is called")
+        //console.log("header useEffect is called")
     }, [])
 
     return (
@@ -36,7 +36,8 @@ const Header = () => {
                     <li className="m-4 p-4" onClick={() => {
                         btnText === "Login" ? setBtnText("Logout") : setBtnText("Login")
                     }}>
-                        {btnText}
+                        {btnText} -
+                        {userData.loggedInUser}
                     </li>
                 </ul>
 

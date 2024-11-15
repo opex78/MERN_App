@@ -134,12 +134,7 @@ update => nextoffset - hash no
 =======
 If i apply <Link> tag anywhere in my proj from now onwards, it should take textDecoration and color by default
 
-
-
-
-
-
-#### MakeMyTrip.com ####
+#### MakeMyTrip.com
 
 Hotel - 20 files
 Cab Booking - 10 files
@@ -147,17 +142,39 @@ Flight Booking - 25 files - Default Business
 Total - 55 files
 
 https://www.makemytrip.com/ => I will not load all 55 files
-25 files would be loaded at first 
+25 files would be loaded at first
 
 https://www.makemytrip.com/hotel/ - 1 file as a bundle => bundle internally contains 20 files in compressed mode (minified mode)
 
+### Higher order component
 
-### Higher order component ###
+HOC : take component as input and return a enhanced component
 
-HOC : take component as input and return a enhanced component 
+### Taks
 
-### Taks 
 1. Design Item List of Restaurant Menu's category - x
 2. Build Accordian like feature in category - y
-3. Implement mock for restaurant menu  - z
+3. Implement mock for restaurant menu - z
+
+#############
+
+RestaurantMenu => dummyData
+RestaurantCategory => dummyData
+a dummyData
+b dummyData
+c dummyData
+d dummyData
+e dummyData
+f dummyData
+g dummyData
+,,,...
+ItemList => dummyData
+
+This problem of concept is known "prop drilling"
+Soln => React Context
+
+global place => store data => access it anywhere you want
+RestaurantMenu => dummyData => would be kept at react context 
+
+ItemList => access dummyData
 

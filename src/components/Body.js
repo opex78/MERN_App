@@ -6,14 +6,19 @@ import useRestaurants from '../utils/useRestaurants'
 import RestaurantCard from '../components/RestaurantCard'
 import Shimmer from '../components/Shimmer'
 import withPromotedLabel from '../components/withPromotedLabel'
+import useRestaurantMenu from '../utils/useRestaurantMenu'
 
-function Body() {
+
+const Body = () => {
+    console.log("body called")
     useEffect(() => {
+        console.log("useEffect called")
         fetchData()
     }, [])
     // normal js variable
     // let filteredList = mock_restaurants;
-
+    // let restaurants = [];
+    // setRestaurants([12,3,4422]) // restaurants = [12,3,4422] /....
     let [restaurants, setRestaurants] = useState([])
     let [filteredRestaurants, setFilteredRestaurants] = useState([])
     let searchText;
@@ -22,7 +27,7 @@ function Body() {
     const fetchData = async () => {
         const resData = await useRestaurants();
         console.log("resData from body", resData)
-        
+
         setRestaurants(resData)
         setFilteredRestaurants(resData)
     }
