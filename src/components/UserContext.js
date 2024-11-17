@@ -2,7 +2,8 @@ import { createContext } from "react";
 
 const UserContext = createContext({
     loggedInUser: "Default User",
-    abc: 213
+    theme: "light",
+    settings: "",
 })
 
 export default UserContext

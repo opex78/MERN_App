@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { createContext } from 'react'
 import { useParams } from 'react-router-dom';
 import Shimmer from '../components/Shimmer';
 import useRestaurantMenu from '../utils/useRestaurantMenu';
 import RestaurantCategory from './RestaurantCategory';
 
-function RestaurantMenu() {
+export const MenuContext = createContext();
+function RestaurantMenu({ dataForB }) {
+    console.log(dataForB)
     const { resId } = useParams()
     console.log("resId", resId)
     const categories = useRestaurantMenu(resId)
@@ -17,7 +19,14 @@ function RestaurantMenu() {
             <h3>
                 <ul>
                     {categories.map((category) => (
-                        <RestaurantCategory data={category} />
+                        <>
+
+                            <MenuContext.Provider value={{
+                                newVal: "123"
+                            }}>
+                                <RestaurantCategory data={category} dataForNewB={dataForB} />
+                            </MenuContext.Provider>
+                        </>
                     ))}
                 </ul>
             </h3>

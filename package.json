@@ -4,7 +4,7 @@
   "description": "package lists",
   "scripts": {
     "build": "parcel build index.html",
-    "start": "parcel index.html"
+    "start": "PORT=1235 parcel index.html"
   },
   "author": "",
   "license": "ISC",

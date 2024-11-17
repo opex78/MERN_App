@@ -1,8 +1,12 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import ItemList from './ItemList';
+import { MenuContext } from './RestaurantMenu';
 
-function RestaurantCategory({ data }) {
+
+function RestaurantCategory({ data, dataForNewB }) {
     console.log(data);
+    const menuData = useContext(MenuContext)
+    console.log("menuData is", menuData)
     const [itemShouldShow, setItemShouldShow] = useState(true);
     const handleClick = () => {
         setItemShouldShow(!itemShouldShow)
@@ -14,7 +18,8 @@ function RestaurantCategory({ data }) {
                 <span>{itemShouldShow ? "⬇️" : "⬆️"}</span>
             </div>
             {/* accordian body */}
-            {itemShouldShow && <ItemList items={data.card.card.itemCards} />}
+            {itemShouldShow && <ItemList items={data.card.card.itemCards} dataForCategoryB={dataForNewB} />}
+            <span>{menuData.newVal}</span>
         </div>
     )
 }

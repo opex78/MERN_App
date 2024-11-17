@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { createContext, lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import About from "../src/components/About";
@@ -20,6 +20,9 @@ const AppLayout = () => {
     )
 }
 
+export const appContext = createContext({
+    bData: "B's Data from app context"
+})
 const appRouter = createBrowserRouter([
     {
         path: "",
@@ -44,7 +47,7 @@ const appRouter = createBrowserRouter([
             },
             {
                 path: "restaurantMenu/:resId",
-                element: <RestaurantMenu />
+                element: <RestaurantMenu dataForB="B's Data" />
             }
         ]
     }

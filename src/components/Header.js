@@ -7,7 +7,7 @@ const Header = () => {
 
     const [btnText, setBtnText] = useState("Login")
 
-    const userData = useContext(UserContext)
+    // const userData = useContext(UserContext)
     // useEffect would be called after your component renders
     // Empty dependency array [] => component loads => useEffect would be called, but only on initial render => 1 time
     // Do not mention anything in dependency array => component loads => useEffect called on initial render as well as after every re-render of component
@@ -37,7 +37,7 @@ const Header = () => {
                         btnText === "Login" ? setBtnText("Logout") : setBtnText("Login")
                     }}>
                         {btnText} -
-                        {userData.loggedInUser}
+                        <UserContext.Consumer>{(data) => data.loggedInUser}</UserContext.Consumer>
                     </li>
                 </ul>
 

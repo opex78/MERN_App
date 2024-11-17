@@ -1,7 +1,8 @@
 import React from 'react'
 import { RES_IMG_URL } from '../utils/constants'
+import A from './A'
 
-function ItemList({ items }) {
+function ItemList({ items, dataForCategoryB }) {
     return (
         <div>
             {
@@ -27,6 +28,7 @@ function ItemList({ items }) {
                             </div>
                             <img src={RES_IMG_URL + item.card.info.imageId} className="w-28" />
                         </div>
+                        <A dataForCategoryB={dataForCategoryB} />
                     </div>
                 ))
                 // items?.map(item => {
