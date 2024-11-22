@@ -1,8 +1,14 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { addItem } from '../utils/cartSlice'
 import { RES_IMG_URL } from '../utils/constants'
-import A from './A'
 
-function ItemList({ items, dataForCategoryB }) {
+function ItemList({ items }) {
+    const dispatch = useDispatch()
+    const handleAddItem = () => {
+        // dispatch action
+        dispatch(addItem("Pizza"))
+    }
     return (
         <div>
             {
@@ -24,11 +30,11 @@ function ItemList({ items, dataForCategoryB }) {
                         </div>
                         <div>
                             <div className='absolute'>
-                                <button className='p-2 bg-black text-white shadow-lg rounded-lg m-auto'>Add +</button>
+                                <button className='p-2 bg-black text-white shadow-lg rounded-lg m-auto' onClick={handleAddItem}>Add +</button>
                             </div>
                             <img src={RES_IMG_URL + item.card.info.imageId} className="w-28" />
                         </div>
-                        <A dataForCategoryB={dataForCategoryB} />
+
                     </div>
                 ))
                 // items?.map(item => {

@@ -178,3 +178,12 @@ RestaurantMenu => dummyData => would be kept at react context
 
 ItemList => access dummyData
 
+
+
+===== Redux
+- Install @reduxjs/toolkit & react-redux
+- Building the store 
+- Connect store to my applicaiton 
+- Slice (cartSlice)
+- dispatch (action) // write 
+- Selector // read

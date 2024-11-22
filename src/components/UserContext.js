@@ -5,5 +5,4 @@ const UserContext = createContext({
     theme: "light",
     settings: "",
 })
-
 export default UserContext

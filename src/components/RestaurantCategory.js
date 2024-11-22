@@ -3,8 +3,7 @@ import ItemList from './ItemList';
 import { MenuContext } from './RestaurantMenu';
 
 
-function RestaurantCategory({ data, dataForNewB }) {
-    console.log(data);
+function RestaurantCategory({ data }) {
     const menuData = useContext(MenuContext)
     console.log("menuData is", menuData)
     const [itemShouldShow, setItemShouldShow] = useState(true);
@@ -18,7 +17,7 @@ function RestaurantCategory({ data, dataForNewB }) {
                 <span>{itemShouldShow ? "⬇️" : "⬆️"}</span>
             </div>
             {/* accordian body */}
-            {itemShouldShow && <ItemList items={data.card.card.itemCards} dataForCategoryB={dataForNewB} />}
+            {itemShouldShow && <ItemList items={data.card.card.itemCards} />}
             <span>{menuData.newVal}</span>
         </div>
     )

@@ -5,8 +5,7 @@ import useRestaurantMenu from '../utils/useRestaurantMenu';
 import RestaurantCategory from './RestaurantCategory';
 
 export const MenuContext = createContext();
-function RestaurantMenu({ dataForB }) {
-    console.log(dataForB)
+function RestaurantMenu() {
     const { resId } = useParams()
     console.log("resId", resId)
     const categories = useRestaurantMenu(resId)
@@ -24,7 +23,7 @@ function RestaurantMenu({ dataForB }) {
                             <MenuContext.Provider value={{
                                 newVal: "123"
                             }}>
-                                <RestaurantCategory data={category} dataForNewB={dataForB} />
+                                <RestaurantCategory data={category} />
                             </MenuContext.Provider>
                         </>
                     ))}
