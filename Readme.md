@@ -174,16 +174,39 @@ This problem of concept is known "prop drilling"
 Soln => React Context
 
 global place => store data => access it anywhere you want
-RestaurantMenu => dummyData => would be kept at react context 
+RestaurantMenu => dummyData => would be kept at react context
 
 ItemList => access dummyData
 
-
-
 ===== Redux
+
 - Install @reduxjs/toolkit & react-redux
-- Building the store 
-- Connect store to my applicaiton 
+- Building the store
+- Connect store to my applicaiton
 - Slice (cartSlice)
-- dispatch (action) // write 
+- dispatch (action) // write
 - Selector // read
+
+
+
+
+
+
+onClick={handleClick} // reference of a function 
+
+onClick={handleClick()}
+
+onClick={handleAddItem(item)}
+
+onClick={(btnText) => {
+console.log("btnText",btnText)
+}}>
+
+function A()
+{
+///
+
+}
+
+
+A()

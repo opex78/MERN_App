@@ -5,9 +5,10 @@ import { RES_IMG_URL } from '../utils/constants'
 
 function ItemList({ items }) {
     const dispatch = useDispatch()
-    const handleAddItem = () => {
+    const handleAddItem = (item) => {
+        console.log("item", item)
         // dispatch action
-        dispatch(addItem("Pizza"))
+        dispatch(addItem(item))
     }
     return (
         <div>
@@ -19,7 +20,7 @@ function ItemList({ items }) {
                 // items?.map(() => {
 
                 // })
-                items?.map(item => (
+                items?.map((item) => (
                     <div className='p-2 m-2 flex border-gray-200 border-b-2 justify-between '>
                         <div className='px-4 mx-4 w-6/12'>
                             <div className='py-2'>
@@ -30,7 +31,7 @@ function ItemList({ items }) {
                         </div>
                         <div>
                             <div className='absolute'>
-                                <button className='p-2 bg-black text-white shadow-lg rounded-lg m-auto' onClick={handleAddItem}>Add +</button>
+                                <button className='p-2 bg-black text-white shadow-lg rounded-lg m-auto' onClick={() => handleAddItem(item)}>Add +</button>
                             </div>
                             <img src={RES_IMG_URL + item.card.info.imageId} className="w-28" />
                         </div>
