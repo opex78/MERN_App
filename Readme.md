@@ -187,12 +187,7 @@ ItemList => access dummyData
 - dispatch (action) // write
 - Selector // read
 
-
-
-
-
-
-onClick={handleClick} // reference of a function 
+onClick={handleClick} // reference of a function
 
 onClick={handleClick()}
 
@@ -208,5 +203,34 @@ function A()
 
 }
 
-
 A()
+
+====
+
+Amazon website
+
+Today, they support n number of features
+
+- 5 new features for them in 4 months
+- after 4 months, QA tests it for 1 month => regression testing
+
+=== test cases => by developrs
+
+- run test case every case should pass
+
+# Types of testing (developer)
+
+- Unit testing
+- Integration testing
+- End to end testing (e2e test)
+
+# React => JEST
+
+=== setting up testing in our app
+
+1. Install react testing library
+2. Installed jest
+3. Install Babel dependencies
+4. configured babel - babel.config,js
+5. configure parcel config file to disable default babel transpilation
+
