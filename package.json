@@ -5,7 +5,8 @@
   "scripts": {
     "build": "parcel build index.html",
     "start": "PORT=1235 parcel index.html",
-    "test": "jest"
+    "test": "jest",
+    "watch-test": "jest --watch"
   },
   "author": "",
   "license": "ISC",

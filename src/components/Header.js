@@ -34,10 +34,12 @@ const Header = () => {
                     <li className="m-4 p-4"><Link to="/grocery">Grocery</Link></li>
                     <li className="m-4 p-4"><Link to="/contact">Contact us</Link></li>
                     <li className="m-4 p-4"><Link to="/cart">Cart - {cartItems.length}</Link></li>
-                    <li className="m-4 p-4" onClick={() => {
-                        btnText === "Login" ? setBtnText("Logout") : setBtnText("Login")
-                    }}>
-                        {btnText} -
+                    <li>
+                        <button className="m-4 p-4" onClick={() => {
+                            btnText === "Login" ? setBtnText("Logout") : setBtnText("Login")
+                        }}>
+                            {btnText}
+                        </button>
                         <UserContext.Consumer>{(data) => data.loggedInUser}</UserContext.Consumer>
                     </li>
                 </ul>

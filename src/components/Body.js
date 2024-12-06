@@ -39,17 +39,21 @@ const Body = () => {
             <div>
                 <div className='flex'>
                     <div className='m-3'>
-                        <input className='border-2 border-solid border-black'
+                        <input
+                            data-testid="searchInput"
+                            className='border-2 border-solid border-black'
                             type="text" onChange={(e) => {
                                 searchText = e.target.value
                                 console.log("searchText", searchText)
                             }} />
-                        <button className='mx-2 px-2 border border-solid border-black rounded-lg bg-amber-400' onClick={() => {
-                            const filteredList = searchText ? restaurants?.filter((restaurnt) => {
-                                return restaurnt?.info?.name?.toLowerCase()?.includes(searchText?.toLowerCase())
-                            }) : restaurants
-                            setFilteredRestaurants(filteredList)
-                        }}>Search</button>
+                        <button
+                            data-testid="searchButton"
+                            className='mx-2 px-2 border border-solid border-black rounded-lg bg-amber-400' onClick={() => {
+                                const filteredList = searchText ? restaurants?.filter((restaurnt) => {
+                                    return restaurnt?.info?.name?.toLowerCase()?.includes(searchText?.toLowerCase())
+                                }) : restaurants
+                                setFilteredRestaurants(filteredList)
+                            }}>Search</button>
 
                     </div>
                     <div>
@@ -69,16 +73,17 @@ const Body = () => {
                     {
                         filteredRestaurants && filteredRestaurants.map((restaurant, index) => {
                             return (
-                                <Link to={"/restaurantmenu/" + restaurant.info.id}>
-                                    <EnhancedRestaurntCard
-                                        key={index}
-                                        promoted={restaurant.info.promoted}
-                                        name={restaurant.info.name}
-                                        cuisines={restaurant.info.cuisines?.join(" , ")}
-                                        deliveryTime={restaurant.info.sla.slaString}
-                                        ratings={`${restaurant.info.avgRatingString} ⭐`}
-                                        cloudinaryId={restaurant.info.cloudinaryImageId} />
-                                </Link>)
+                                <div data-testid="resCard" key={index}>
+                                    <Link to={"/restaurantmenu/" + restaurant.info.id}>
+                                        <EnhancedRestaurntCard
+                                            promoted={restaurant.info.promoted}
+                                            name={restaurant.info.name}
+                                            cuisines={restaurant.info.cuisines?.join(" , ")}
+                                            deliveryTime={restaurant.info.sla.slaString}
+                                            ratings={`${restaurant.info.avgRatingString} ⭐`}
+                                            cloudinaryId={restaurant.info.cloudinaryImageId} />
+                                    </Link>
+                                </div>)
                         })
                     }
                 </div>
